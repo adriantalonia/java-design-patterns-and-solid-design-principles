@@ -8,6 +8,7 @@
   * [✅ Java Example (Good Design – OCP Applied)](#-java-example-good-design--ocp-applied)
   * [🌍 Real-World Analogy](#-real-world-analogy)
   * [🛠 Real Application Example](#-real-application-example)
+  * [💼 Interview Preparation](#-interview-preparation)
   * [📌 Summary](#-summary)
 <!-- TOC -->
 
@@ -149,6 +150,38 @@ In a **payment processing system**:
 
 ---
 
+## 💼 Interview Preparation
+
+**Sample Questions**
+
+1. **How do you handle OCP when requirements change frequently?**
+
+- "I use the Rule of Three: Refactor to abstraction after the third similar change. Example: After adding third report
+  type, created ReportGenerator interface."
+
+2. **Is OCP achievable in all scenarios? When might you violate it?**
+
+- "Trade-offs exist:
+    - Performance-critical code (direct access avoids indirection)
+    - Early-stage prototypes (YAGNI principle)
+    - Framework hooks requiring modification points Document violations and plan refactoring."
+
+3. **How does OCP relate to testing?**
+"OCP reduces test maintenance:
+
+```java
+// ❌ Without OCP
+testReportService() {
+    // Must test PDF, HTML, CSV in single test
+    // Fails when adding new type
+}
+
+// ✅ With OCP
+testPdfGenerator() { /* Isolated test */ }
+
+testHtmlGenerator() { /* Isolated test */ }
+```
+
 ## 📌 Summary
 
 | Rule                        | Explanation                                                  |
@@ -164,3 +197,4 @@ In a **payment processing system**:
 ✅ Applying the Open/Closed Principle leads to **scalable**, **maintainable**, and **future-proof** software.
 
 > “Design for change, and you won’t have to redesign for change.”
+
